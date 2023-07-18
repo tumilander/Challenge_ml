@@ -31,7 +31,7 @@ Obs.: Não se esqueça de alterar/inserir seu e-mail do GMAIL e sua senha de app
 ![](/imagens/users.png)</br>
 #
 ### Aviso de envio
-![](/imagens/envia_email.png)
+![](/imagens/envia_email.png)</br>
 #
 ### Tabela em sqlite3
 ![](/imagens/tabela_sql.png)</br>
