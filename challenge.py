@@ -52,17 +52,18 @@ def salvar_dados_na_base_de_dados(json_data, csv_data):
 
     # Criar a tabela se não existir
     cursor.execute('''CREATE TABLE IF NOT EXISTS revdb
-                      (bdtest text, owner_name text, manager_email text, classificacao text)''')
+                      (bdtest text, owner_name text, owner_email text, manager_email text, classificacao text)''')
 
     # Inserir os dados do arquivo JSON na tabela
     for item in json_data:
         bd = item['dn_name']
         owner_name = item['owner'].get('name', '')  # pega o valor do campo 'name' ou uma string vazia caso não exista
+        owner_email = item['owner'].get('email', '') # pega o email do owner ou string vazia caso não exista
         manager_email = csv_data.get(item['owner']['uid'],'') # pega o email do manager ou vazio(string) 
         classificacao = item['classification']['integrity']
 
-        cursor.execute("INSERT INTO revdb VALUES (?, ?, ?, ?)",
-                       (bd, owner_name, manager_email, classificacao))
+        cursor.execute("INSERT INTO revdb VALUES (?, ?, ?, ?, ?)",
+                       (bd, owner_name, owner_email, manager_email, classificacao))
 
         # Verificar se a classificação é alta (high) e enviar o email ao manager
         if classificacao.lower() == 'high':
