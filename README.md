@@ -19,12 +19,15 @@ Por fim, o script faz o commit das alterações no banco de dados e fecha a cone
 Resumindo, o script lê os arquivos `dblist.json` e `user_manager.csv`, armazena as informações `dn_name`, `owner_name`, `manager_email`, `classification` em um banco de dados SQLite e envia emails aos gerentes para bases de dados com classificação alta.
 
 #
-Obs.: Não se esqueça de alterar/inserir seu e-mail do GMAIL e sua senha de app localizada em:</b>
+Obs.: Não se esqueça de alterar/inserir seu e-mail do GMAIL e sua senha de app localizada nas configurações de sua conta google:</b>
 > configurações->segurança->senhas de app</br>
 #
 ### Envio de e-mail
+1. Revalidação `locations`
 ![](/imagens/locations.png)</br>
+2. Revalidação `orders`
 ![](/imagens/orders.png)</br>
+3. Revalidação `users`
 ![](/imagens/users.png)</br>
 #
 ### Aviso de envio
