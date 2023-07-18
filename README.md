@@ -10,13 +10,13 @@ Em seguida, o script lê o arquivo CSV que contém informações sobre os usuár
 
 O script cria uma conexão com o banco de dados SQLite (ou cria o banco de dados se ele não existir) e define a estrutura da tabela `revdb.db`.
 
-Para cada item na lista de bases de dados obtidos do arquivo `dblist.json`, o script insere as informações relevantes na tabela `revdb.db` do banco de dados SQLite, isso inclui o nome da base de dados `dn_name`, o nome do proprietário `owner` -> `name`, o email do gerente `manager_email` obtido do dicionário mapeado a partir do arquivo CSV e a classificação da base de dados.
+Para cada item na lista de bases de dados obtidos do arquivo `dblist.json`, o script insere as informações relevantes na tabela `revdb.db` do banco de dados SQLite, isso inclui o nome da base de dados `dn_name`, o nome do proprietário `owner` -> `name`,o e-mail do proprietário `owner` -> `email`, o email do gerente `manager_email` obtido do dicionário mapeado a partir do arquivo CSV e a classificação `classification` da base de dados.
 
 Em seguida, o script verifica se a classificação da base de dados é alta (high) (em lower para não ocorrer erros). Se der match, o script envia um email para o gerente correspondente, informando que a base de dados está pendente de revalidação e solicitando sua aprovação. Isso é feito usando a biblioteca smtplib (abaixo todas os links de documentações das libs) para enviar emails através de uma conta do Gmail(especificamente).
 
 Por fim, o script faz o commit das alterações no banco de dados e fecha a conexão.
 
-Resumindo, o script lê os arquivos `dblist.json` e `user_manager.csv`, armazena as informações `dn_name`, `owner_name`, `manager_email`, `classification` em um banco de dados SQLite e envia emails aos gerentes para bases de dados com classificação alta.
+Resumindo, o script lê os arquivos `dblist.json` e `user_manager.csv`, armazena as informações `dn_name`, `owner_name`, `owner_email`, `manager_email`, `classification` em um banco de dados SQLite e envia emails aos gerentes para bases de dados com classificação alta.
 
 #
 Obs.: Não se esqueça de alterar/inserir seu e-mail do GMAIL e sua senha de app localizada nas configurações de sua conta google:</b>
